@@ -3,10 +3,10 @@ name: Gerenciamento de Trafego CI
 on:
   push:
     branches:
-      - main
+      - develop  # Ações acionadas ao fazer push na branch 'develop'
   pull_request:
     branches:
-      - main
+      - develop  # Ações acionadas ao abrir um pull request para a branch 'develop'
 
 jobs:
   build:
