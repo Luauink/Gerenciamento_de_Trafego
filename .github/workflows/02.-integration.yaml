@@ -7,7 +7,7 @@ on:
 
 jobs:
   build_and_test:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
       - name: Git Checkout
@@ -19,15 +19,16 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
+      - name: Build with Maven
+        run: mvn clean package
+
+      - name: List target directory
+        run: dir target
+
       - name: Build Docker Image
         uses: docker/build-push-action@v6
         with:
           push: false
+          context: .
+          file: Dockerfile
           tags: user/repo:latest
-
-      - name: Run Maven Build
-        run: mvn clean package
-
-      - name: Run Unit Tests
-        run: mvn test
-
