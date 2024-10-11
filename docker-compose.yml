@@ -4,14 +4,10 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "8081:8080"  # Use uma porta disponível
-    depends_on:
-      - db
-  db:
-    image: postgres:latest
+      - "8080:8080"
     environment:
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: mydb
-    ports:
-      - "5432:5432"
+      SPRING_DATASOURCE_URL: jdbc:mysql://bd-fiap-api-dev.mysql.database.azure.com:3306/your-database-name?useSSL=true&requireSSL=false
+      SPRING_DATASOURCE_USERNAME: rm98465
+      SPRING_DATASOURCE_PASSWORD: DtNasc#040292
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver
+      SPRING_PROFILES_ACTIVE: dev  # Ativa o perfil dev
