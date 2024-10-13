@@ -1,13 +1,14 @@
 services:
   trafego-app:
     build:
-      context: .
-      dockerfile: Dockerfile
+      context: .  # Diretório onde o Dockerfile está localizado
+      dockerfile: Dockerfile  # Nome do Dockerfile
     ports:
-      - "8080:8080"
+      - "8080:8080"  # Mapeia a porta 8080 do contêiner para a porta 8080 da máquina host
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://bd-fiap-api-dev.mysql.database.azure.com:3306/seu-nome-do-banco-de-dados?useSSL=true&requireSSL=true
       SPRING_DATASOURCE_USERNAME: rm98465
       SPRING_DATASOURCE_PASSWORD: DtNasc#040292
       SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver
       SPRING_PROFILES_ACTIVE: dev  # Ativa o perfil dev
+    command: mvn clean install  # Executa o comando Maven para compilar o projeto
