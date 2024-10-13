@@ -6,7 +6,7 @@ services:
     ports:
       - "8080:8080"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://bd-fiap-api-dev.mysql.database.azure.com:3306/your-database-name?useSSL=true&requireSSL=false
+      SPRING_DATASOURCE_URL: jdbc:mysql://bd-fiap-api-dev.mysql.database.azure.com:3306/seu-nome-do-banco-de-dados?useSSL=true&requireSSL=true
       SPRING_DATASOURCE_USERNAME: rm98465
       SPRING_DATASOURCE_PASSWORD: DtNasc#040292
       SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver

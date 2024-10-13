@@ -1,0 +1,26 @@
+name: Continuous Integration
+
+on:
+  pull_request:  # Corrigido de push_resquest para pull_request
+    branches:
+      - develop
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4  # Corrigido de 'chekout' para 'checkout'
+
+      - name: Setup Java JDK
+        uses: actions/setup-java@v4  # Adicionando a ação para configurar o Java
+        with:
+          java-version: '21'  # Especifique a versão do Java que você deseja usar
+          distribution: 'temurin'  # Ou 'temurin', se preferir
+
+      - name: Build with Maven
+        run: mvn clean install  # Adiciona o comando para compilar o projeto
+
+      - name: Run tests
+        run: mvn test  # Executa os testes do projeto
