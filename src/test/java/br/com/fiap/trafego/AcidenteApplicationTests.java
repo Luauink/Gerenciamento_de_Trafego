@@ -8,6 +8,6 @@ class AcidenteApplicationTests {
 
     @Test
     void contextLoads() {
+        // Teste para verificar se o contexto do Spring carrega corretamente.
     }
-
 }
